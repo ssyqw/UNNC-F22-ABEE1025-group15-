@@ -1,0 +1,52 @@
+from tkinter import *
+import tkinter as tk#Use tkinter in python
+def btnClick(numbers):
+    global operator
+    operator=operator+str(numbers)
+    text_input.set(operator)#eqn. for the button entry
+   
+def btnClearDisplay():
+    global operator
+    operator = ""
+    text_input.set("")#eqn. for the "C" button 
+  
+def btnEqualsInput():
+    global operator
+    sumup=eval(str(operator))
+    text_input.set(sumup)#eqn. for the "=" button
+    
+
+cal = Tk()
+cal.title("U值计算器")
+cal.attributes("-alpha",0.9)
+cal.geometry('400x500+500+250')#set the INSTRUCTION WINDOW
+
+root = tk.Tk()
+root.title("INSTRUCTION")#set the calculation window
+
+
+ 
+w = tk.Label(root, text="INSTRUCTION:(1)entry the k value，（2）click the cal button,(3)entry the d value,(4)click""=""button")
+v = tk.Label(root, text="BUTTON INSTRUCTION:C:clear the numbers")
+
+w.pack()
+v.pack()
+
+global operator
+operator=""
+text_input = StringVar()
+
+txtDisplay1 = Entry(cal, font=("arial",20,"bold"),bd=40,bg="yellow",
+                   textvariable=text_input,insertwidth = 6, justify = "right").grid(columnspan=4)
+
+################First line of number buttons#################
+btn0=Button(cal,font=("arial",20,"bold"),bd=4,bg="powder blue",fg ="black", padx
+               =16,pady =16,text = "0",command=lambda :btnClick(0)).grid(row=2,column=0)
+btn1=Button(cal,font=("arial",20,"bold"),bd=4,bg="powder blue",fg ="black", padx
+               =16,pady =16,text = "1",command=lambda :btnClick(1)).grid(row=2,column=1)
+btn2=Button(cal,font=("arial",20,"bold"),bd=4,bg="powder blue",fg ="black", padx
+               =16,pady =16,text = "2",command=lambda :btnClick(2)).grid(row=2,column=2)
+btn3=Button(cal,font=("arial",20,"bold"),bd=4,bg="powder blue",fg ="black", padx
+               =16,pady =16,text = "3",command=lambda :btnClick(3)).grid(row=2,column=3)
+btn4=Button(cal,font=("arial",20,"bold"),bd=4,bg="powder blue",fg ="black", padx
+               =16,pady =16,text = "4",command=lambda :btnClick(4)).grid(row=3,column=0)
